@@ -5,8 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/starter-template.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/lib/ihover/ihover.s.3.css">
+    <link rel="stylesheet" href="/lib/lightbox/ekko-lightbox.min.css">
 	<!-- Optional theme -->
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,15 +24,116 @@
 	<header></header>
 	
 	<div class="container">
-		<div class="starter-template">
-		<h1>Matthew Wade</h1>
-		<h3>Information coming soon.</h3>
+		<div class="main-placard">
+		  <h1>Matthew Wade</h1>
+		  <h3>Web developer and problem solver.</h3>
 		</div>
 	</div>
+    <div class="container">
+        <div class="bio">
+            <p>
+                Hello, and welcome to my website. I am a problem solver through and through, and focus on creating modern web utilities that automate dated manual processes and improve efficiency. I maintain a strict attention to detail and emphasize on having a great user experience.
+            </p>
+            <p>
+                Currently, I work in front-end development (HTML, CSS, JavaScript, jQuery), client-side scripting for Windows and Macs (PowerShell, Batch, AppleScript), and back-end Microsoft Technologies (ASP.NET, C#, SharePoint). 
+            </p>
+            <p>
+                Feel free to explore my sample projects below, as well as my resume. Thank you.
+            </p>
+        </div>
+    </div>
+    <div class="container initial-choices">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <a href="/pdf/Resume - Matthew Wade - v3.pdf">
+                    <i class="fa fa-file-pdf-o large-icon"></i>
+                    <p>Resume</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <a href="#sample-project-anchor">
+                    <i class="fa fa-cube large-icon"></i>
+                    <p>Sample Projects</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row centered-title">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h2>Sample Projects</h2>
+            </div>
+        </div>
+    </div>
+    
+    <a name="sample-project-anchor"></a>
+    <div class="container">
+        <div class="row">
+            <!-- START Project - MIS Tour -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="ih-item square effect3 top_to_bottom">
+                    <a href="/img/mis-tour-animated.gif" data-toggle="lightbox" data-title="MIS Tour" data-footer="An interactive orientation written by me and proofed through our corporate communications lead; this tour educates new employees on the MIS department and its various offerings. The tour includes support for office managers to insert custom content specific to their local office.">
+                    <div class="img">
+                        <img src="/img/mis-tour-menu.png" alt="img">
+                    </div>
+                    <div class="info">
+                      <h3>MIS Tour</h3>
+                      <p>A virtual orientation to be viewed by all new employees.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <!-- END Project -->
+            
+            <!-- START Project - Notices -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="ih-item square effect3 top_to_bottom">
+                    <a href="/img/notices-animated.gif" data-toggle="lightbox" data-title="Notices" data-footer="A dynamic web application used for publishing downloads for various agencies, filterable by office and user-agent strings. The application would also track user clicks for later analysis.">
+                    <div class="img">
+                        <img src="/img/notices-sample.png" alt="img">
+                    </div>
+                    <div class="info">
+                      <h3>Notices</h3>
+                      <p>A notifcation system to publish recent downloads.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <!-- END Project -->
+            
+            <!-- START Project - Guest Wireles PDF -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="ih-item square effect3 top_to_bottom">
+                    <a href="/img/red-carpet-pdf-screenshot.png" data-toggle="lightbox" data-title="Guest Wireless (Red Carpet) PDF" data-footer="When a weekly set of guest wireless credentials were generated, several HTML documents designed by me were created and exported to PDFs using <em>wkhtmltopdf</em>. Emails were then automatically sent to the in-house print department to print the newly generated credentials on card stock.<br>">
+                    <div class="img">
+                        <img src="/img/red-carpet-pdf-screenshot.png" alt="img">
+                    </div>
+                    <div class="info">
+                      <h3>Guest Wireless PDFs</h3>
+                      <p>Automatically generated business cards for clients.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <!-- END Project -->
+        </div>
+    </div>
 	
 	<footer></footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+</script>
+<script src="/lib/lightbox/ekko-lightbox.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        }); 
+        
+        
+    });
+</script>
 
 </body>
 </html>
