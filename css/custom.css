@@ -5,6 +5,12 @@ body {
     color: #2d2d2d;
 }
 
+h1 {
+    font-weight: bold;
+    font-size: 48px;
+    /*color: #54a1ff;*/
+}
+
 .sample-projects .row {
     border: 5px dashed #acacac;
     -webkit-border-radius: 20px;
@@ -24,11 +30,7 @@ body {
 	padding: 40px 15px;
 	text-align: center;
 }
-h1 {
-    font-weight: bold;
-    font-size: 48px;
-    /*color: #54a1ff;*/
-}
+
 
 .bio {
     padding: 0px 15%;
