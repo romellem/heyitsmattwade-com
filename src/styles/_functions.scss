@@ -1,0 +1,88 @@
+@use 'font' as font;
+
+@function linear-interpolation($map) {
+	$keys: map-keys($map);
+	@if (length($keys) != 2) {
+		@error "linear-interpolation() $map must be exactly 2 values";
+	}
+
+	// $map: (x1: y1, x2: y2)
+	$x1: nth($keys, 1);
+	$y1: map-get($map, $x1);
+	$x2: nth($keys, 2);
+	$y2: map-get($map, $x2);
+
+	// If we are interpolating from two identical values, just return that value. No `calc` needed
+	@if ($y1 == $y2) {
+		@return $y1;
+	}
+
+	// The slope
+	$m: ($y2 - $y1) / ($x2 - $x1);
+
+	// The y-intercept
+	$b: $y1 - $m * $x1;
+
+	// Determine if the sign should be positive or negative
+	$sign: '+';
+	@if ($b < 0) {
+		$sign: '-';
+		$b: abs($b);
+	}
+	@return calc(#{$m * 100}vw #{$sign} #{$b});
+}
+
+@function list-sort($list) {
+	$sortedlist: ();
+	@while length($list) > 0 {
+		$value: nth($list, 1);
+		@each $item in $list {
+			@if $item < $value {
+				$value: $item;
+			}
+		}
+		$sortedlist: append($sortedlist, $value, 'space');
+		$list: list-remove($list, index($list, $value));
+	}
+	@return $sortedlist;
+}
+
+@function map-sort($map) {
+	$keys: list-sort(map-keys($map));
+	$sortedMap: ();
+	@each $key in $keys {
+		$sortedMap: map-merge(
+			$sortedMap,
+			(
+				$key: map-get($map, $key),
+			)
+		);
+	}
+	@return $sortedMap;
+}
+
+@function list-remove($list, $index) {
+	$newList: ();
+	@for $i from 1 through length($list) {
+		@if $i != $index {
+			$newList: append($newList, nth($list, $i), 'space');
+		}
+	}
+	@return $newList;
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+@function rem-to-px($number, $base: font.$base-font-size) {
+	$unitless-number: strip-unit($number);
+	@return $unitless-number * $base;
+}

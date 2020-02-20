@@ -1,0 +1,108 @@
+/// Poly-sizing mixin
+///
+/// @see https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/
+///
+/// @param {String|List} $properties - Can be a single CSS property (e.g. `"font-size"`) or a list of properties (e.g `("margin-right", "margin-left")`).
+/// @param {Map<(List<Length>|Length)>} $map - Can be a map of single values, or a map of lists of values.
+/// @example @include poly("font-size", (375px: 15px, 767px: 30px));
+/// @example @include poly("padding", (375px: (0 10px), 767px: (0 20px)));
+/// @example @include poly(("margin-top", "margin-bottom"), (375px: 10px, 767px: 20px));
+@mixin poly($properties, $map) {
+	// Get the number of provided breakpoints
+	$length: length(map-keys($map));
+
+	// Error if the number of breakpoints is < 2
+	@if ($length < 2) {
+		@error "poly() $map requires at least 2 keys";
+	}
+
+	// Sort the map by viewport width (key)
+	$map: map-sort($map);
+	$keys: map-keys($map);
+	$values: map-values($map);
+
+	// Verify that all values are the same length
+	$values-length: length(nth($values, 1));
+	@for $v from 2 through $length {
+		$temp-value-length: length(nth($values, $v));
+		@if ($temp-value-length != $values-length) {
+			@error "poly() values must all be same length";
+		}
+	}
+
+	// Coerce `$properties` to a list
+	@if (type-of($properties) != 'list') {
+		// Make a list of 1
+		$properties: ($properties);
+	}
+
+	// Base sizing
+	@each $property in $properties {
+		#{$property}: map-get($map, nth($keys, 1));
+	}
+
+	@for $i from 1 through ($length - 1) {
+		$x1: nth($keys, $i);
+		$y1: map-get($map, $x1);
+		$x2: nth($keys, ($i + 1));
+		$y2: map-get($map, $x2);
+
+		// To support passing in a list for our values,
+		// we loop over the values and map it to its `linear-interpolation`
+		// Then, we store that value this list below, separated by spaces.
+		$value-list-interpolated: ();
+
+		@for $j from 1 through $values-length {
+			$y1-jth: nth($y1, $j);
+			$y2-jth: nth($y2, $j);
+
+			$interpolation: linear-interpolation(
+				(
+					$x1: $y1-jth,
+					$x2: $y2-jth,
+				)
+			);
+			$value-list-interpolated: append($value-list-interpolated, $interpolation, space);
+		}
+
+		@media (min-width: nth($keys,$i)) {
+			@each $property in $properties {
+				#{$property}: $value-list-interpolated;
+			}
+		}
+	}
+
+	// Max sizing
+	@media (min-width: nth($keys,$length)) {
+		@each $property in $properties {
+			#{$property}: map-get($map, nth($keys, $length));
+		}
+	}
+}
+
+/// @link https://gist.github.com/MoOx/9137295
+@mixin reset-button() {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	background: transparent;
+
+	/* inherit font & color from ancestor */
+	color: inherit;
+	font: inherit;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+
+	text-align: inherit;
+}

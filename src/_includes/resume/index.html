@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+		@font-face {
+			font-family: Pagella;
+			src: local('TeX Gyre Pagella'), url('texgyrepagella-regular.otf');
+		}
+		@font-face {
+			font-family: Pagella;
+			font-weight: bold;
+			src: local('TeX Gyre Pagella Bold'), url('texgyrepagella-bold.otf');
+		}
+		@font-face {
+			font-family: Pagella;
+			font-style: italic;
+			src: local('TeX Gyre Pagella Italic'), url('texgyrepagella-italic.otf');
+		}
+		@font-face {
+			font-family: Pagella;
+			font-weight: bold;
+			font-style: italic;
+			src: local('TeX Gyre Pagella Bold Italic'), url('texgyrepagella-bolditalic.otf');
+		}
+
+		@media all {
+			.print-page-margin {
+				display: none;
+			}
+
+			#page-two-header,
+			#page-three-header {
+				display: none;
+			}
+		}
+
+		@media print {
+			.work,
+			.skills {
+				page-break-inside: avoid;
+			}
+
+			.main-list > li:before {
+				padding-right: 7px;
+			}
+
+			/*#work-experience {
+				border: 1px solid green;
+				height: auto;
+			}*/
+
+			.print-page-margin {
+				/* display: block; */
+				display: none;
+
+				border-top: 1px solid rgba(255, 255, 255, 0);
+			}
+
+			#page-two {
+				height: 100px;
+			}
+
+			#page-three {
+				height: 50px;
+			}
+
+			/* Hacky way to get a header on each page */
+			#page-two-header {
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 10px;
+
+				position: absolute;
+				top: 890px;
+				left: 626px;
+
+				/* display: block; */
+				display: none;
+
+				padding: 38px 0 .75em 0;
+
+				color: #999;
+				/* border-right: 1px solid red; */
+			}
+
+			#page-three-header {
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 10px;
+
+				position: absolute;
+				top: 1808px;
+				left: 626px;
+
+				/* display: block; */
+				display: none;
+
+				padding: 38px 0 .75em 0;
+
+				color: #999;
+				/* border-right: 1px solid red; */
+			}
+		}
+
+		/* @page {
+			margin-top: 1in;
+		} */
+
+		body {
+			font-family: Pagella, Georgia, 'Times New Roman', Times, serif;
+			line-height: 16px;
+
+			margin: 3em 3em 1em 3em;
+
+			color: #2d2d2d;
+		}
+
+		h1,
+		h2 {
+			font-family: 'Source Sans Pro', sans-serif;
+
+			text-align: center;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			text-transform: uppercase;
+		}
+
+		h1 {
+			font-size: 2.5em;
+			font-weight: 400;
+		}
+
+		h2 {
+			font-size: 1.5em;
+			font-weight: 200;
+		}
+
+		h4 {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: 9.5pt;
+			font-weight: 800;
+
+			margin-top: .75em;
+			margin-bottom: 1em;
+		}
+
+		a.email,
+		a.site {
+			text-decoration: none;
+
+			color: #2d2d2d;
+		}
+
+		.top-name-address,
+		.main-container,
+		.education,
+		.work,
+		.skills {
+			width: 600px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.top-name-address {
+			/*padding-top: 2.5em;*/
+		}
+
+		.education,
+		.work,
+		.skills {
+			line-height: 1.125rem;
+
+			margin-top: 2.5em;
+
+			border-top: 1px solid #2d2d2d;
+		}
+
+		.year {
+			float: right;
+
+			vertical-align: text-top;
+		}
+
+		.school,
+		.job {
+			font-size: 19pt;
+		}
+
+		.honors {
+			font-style: italic;
+		}
+
+		.work {
+			break-inside: avoid;
+		}
+
+		.job + .job {
+			margin-top: 1.7rem;
+		}
+
+		.merge-info {
+			font-size: 11pt;
+			font-style: italic;
+		}
+
+		.job-title {
+			font-size: 13pt;
+			font-style: italic;
+
+			clear: both;
+
+			padding-top: 10px;
+		}
+
+		.job-location {
+			/*border: 1px solid red;*/
+			float: left;
+
+			width: 70%;
+		}
+
+		.job-and-year-wrapper {
+			line-height: 2rem;
+		}
+
+		.job-and-year-wrapper::after {
+			display: table;
+			clear: both;
+
+			content: ' ';
+		}
+
+		ul {
+			font-size: 11pt;
+			line-height: 1.4rem;
+
+			margin-top: 1em;
+			padding-left: 14px;
+
+			list-style: none;
+		}
+
+		ul.sub-list {
+			margin-top: 5px;
+		}
+
+		ul > li + li {
+			margin-top: 5px;
+		}
+
+
+		ul.main-list > li:before {
+			font-size: 11pt;
+
+			margin-left: -14px;
+			padding-right: 4px;
+
+			content: '\2013';
+		}
+
+		ul.sub-list > li:before {
+			font-size: 11pt;
+
+			margin-left: -14px;
+			padding-right: 5px;
+
+			content: '\25AA'; /*BIG_PLUS - "\FF0B" */
+		}
+
+		.small-box {
+			font-size: .5em;
+
+			position: relative;
+			top: -4px;
+		}
+
+		.normal {
+			font-style: normal;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="top-name-address">
+				<h1>Matthew Wade</h1>
+				<h2>Chicago, IL</h2>
+				<h2><a href="mailto:heyitsmattwade@gmail.com" target="_blank" class="email" title="Send email.">heyitsmattwade@gmail.com</a></h2>
+				<h2><a href="https://heyitsmattwade.com" target="_blank" class="site" title="View Matthew Wade's personal website.">heyitsmattwade.com</a></h2>
+			</div>
+
+			<div class="education">
+				<h4>Education</h4>
+				<div class="school">
+					<strong>Saint Louis University</strong>
+					<div class="year">
+						2007&ndash;11
+					</div>
+					<ul class="main-list">
+						<li>B.A. <span class="honors">magna cum laude</span>, Mathematics.</li>
+						<li>Minors in Computer Science and Philosophy.</li>
+						<li>Recipient of 2011 Garneau Math Award.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="work">
+				<h4>Work Experience</h4>
+				<div class="job" id="designory">
+					<div class="job-and-year-wrapper">
+						<div class="job-location">
+							<strong>Designory</strong>
+						</div>
+						<div class="year">
+							2017&ndash;Present
+						</div>
+					</div>
+					<div class="job-title">
+						Lead Frontend Engineer
+					</div>
+					<ul class="main-list">
+						<li>Member of leadership team. Responsible for mentoring junior developers, reviewing code, and interviewing new candidates.</li>
+						<li>Architectured and built many internal build tools, including our standard static-site boilerplate, screenshot automation, and various migration scripts.</li>
+						<li>Generally programmed in a NodeJS stack, while interfacing among AWS, Heroku, Sharepoint, SiteCore, Wordpress, and Drupal.</li>
+					</ul>
+				</div>
+				<div class="job" id="ram-racing">
+					<div class="job-and-year-wrapper">
+						<div class="job-location">
+							<strong>RAM Racing</strong>
+						</div>
+						<div class="year">
+							2015&ndash;17
+						</div>
+					</div>
+					<div class="job-title">
+						Frontend Developer
+					</div>
+					<ul class="main-list">
+						<li>Redesigned and developed main administrative interface of registration platform, with a focus on implementing responsive design elements.</li>
+						<li>Led efforts to standardize JavaScript and comply with best practices.</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="spacer" style="height: 70px">&nbsp;</div>
+
+			<div class="work">
+				<h4>Work Experience (Cont.)</h4>
+				<div class="job">
+					<div class="job-and-year-wrapper">
+						<div class="job-location">
+							<strong>FleishmanHillard</strong>
+						</div>
+						<div class="year">
+							2011&ndash;15
+						</div>
+					</div>
+					<span class="merge-info">(MIS department became <span class="normal"><strong>Consolidated Data Services</strong> (CDS)</span> in 2014)</span>
+					<div class="job-title">
+						Lead Technical Specialist
+					</div>
+					<ul class="main-list">
+						<li>Managed the daily operations of the Help Desk to ensure a consistent and high level of customer service was delivered from the team.</li>
+						<li>Mentored and managed interns, two of which were hired to full-time positions.</li>
+						<li>Designed and created several web pages with a focus on ease of use and automation.</li>
+						<li>Programmed numerous utilities and automated tasks for IT staff, providing solutions which greatly improved efficiency.</li>
+						<li>Accompanied and led several office relocations, racking and completing all cable management for the network equipment.</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Page 2 -->
+			<div class="print-page-margin" id="page-two"></div>
+			<div id="page-two-header">M. Wade - p. 2</div>
+
+			<div class="skills" id="programming-experience">
+				<h4>Technical Experience</h4>
+					<ul class="main-list" style="margin-bottom: 0">
+						<li>Client Side / Front End:
+						<ul class="sub-list">
+							<li>
+								<em>HTML</em>, <em>(S)CSS</em>, <em>JavaScript</em>, <em>Handlebars</em>, <em>React</em>, <em>Vue</em>, <em>Redux</em>, <em>Bootstrap</em>, <em>Foundation</em>,&nbsp;<em>GSAP</em>.
+							</li>
+						</ul></li>
+						<li>Front End Tooling:
+						<ul class="sub-list">
+							<li>
+								<em>NPM &amp; Yarn</em>, <em>Babel</em>, <em>Webpack</em>, <em>Gulp</em>, <em>Browserify</em>, <em>PostCSS</em>, <em>Gatsby</em>, <em>Storybook</em>, <em>Jest &amp; Mocha</em>, <em>Bootstrap</em>, <em>Foundation</em>,&nbsp;<em>Puppeteer</em>.
+							</li>
+						</ul></li>
+						<li>Server Side / Back End:
+						<ul class="sub-list">
+							<li>
+								<em>NodeJS</em>, <em>Express</em>, <em>Keystone</em>, <em>MongoDB <span class="normal">(via</span> Mongoose<span class="normal">)</span></em>, <em>SQLite</em>, <em>MariaDB</em>.
+							</li>
+						</ul></li>
+						<li>Other:
+						<ul class="sub-list">
+							<li>
+								<em>Bash (GNU Coreutils)</em>, <em>Git</em>, <em>GitLab CI</em>, <em>Docker</em>, <em>PHP</em>, <em>CakePHP</em>, <em>C# / .NET</em>, <em>Sharepoint</em>, <em>Salesforce</em>, <em>Heroku</em>, <em>AWS (S3)</em>, <em>SQL</em>, <em>Adobe Creative Suite (Illustrator, Photoshop,&nbsp;InDesign)</em>.
+							</li>
+						</ul></li>
+					</ul>
+			</div>
+
+			<div class="spacer" style="height: 160px">&nbsp;</div>
+
+			<div class="work" id="other-work-experience">
+				<h4>Other Work Experience</h4>
+				<div class="job">
+					<div class="job-and-year-wrapper">
+						<div class="job-location">
+							<strong>Saint Louis University</strong>
+						</div>
+						<div class="year">
+							2008
+						</div>
+					</div>
+					<div class="job-title">
+						Mathematics Tutor
+					</div>
+					<ul class="main-list">
+						<li>Provided students with instructional assistance in multiple math disciplines, including Algebra, Geometry, Trigonometry, Statistics, and Calculus.</li>
+						<li>Explained concepts and ideas effectively with visible test and class grade improvements.</li>
+					</ul>
+				</div>
+				<div class="job">
+					<div class="job-and-year-wrapper">
+						<div class="job-location">
+							<strong>Freelance Web and Game Developer</strong>
+						</div>
+						<div class="year">
+							2007&ndash;Present
+						</div>
+					</div>
+					<div class="job-title">
+						Scripting and Creative Lead
+					</div>
+					<ul class="main-list">
+						<li>Created a variety of websites for paid jobs as well as volunteer work which required the use of PHP, HTML, Flash, jQuery, and MySQL.</li>
+						<li>Organized and maintained a schedule that was tailored to each individual client.</li>
+						<li>Designed and produced original games sold to online gaming websites.</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
