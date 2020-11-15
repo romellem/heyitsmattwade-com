@@ -1,7 +1,7 @@
 {
 	"routes": [
 		{
-			"src": "/posts",
+			"src": "/resume",
 			"status": 301,
 			"headers": { "Location": "/pdfs/Matthew%20Wade%20-%20Resume.pdf" }
 		},
