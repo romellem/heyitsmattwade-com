@@ -10,6 +10,21 @@ module.exports = function (eleventyConfig) {
 		eleventyConfig.addPassthroughCopy(to_copy);
 	}
 
+	/**
+	 * Returns a number, which is the current year + the argument, which defaults to 0.
+	 */
+	eleventyConfig.addShortcode('relativeYear', function (_to) {
+		let to = _to;
+		if (typeof to !== 'number') {
+			to = 0;
+		}
+
+		let today = new Date();
+		today.setFullYear(today.getFullYear() + to);
+
+		return today.getFullYear();
+	});
+
 	return {
 		dir: {
 			input: 'src',
