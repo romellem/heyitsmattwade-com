@@ -5,23 +5,48 @@
 		<style type="text/css">
 		@font-face {
 			font-family: Pagella;
-			src: local('TeX Gyre Pagella'), url('texgyrepagella-regular.otf');
+			src: local('TeX Gyre Pagella'), url('texgyrepagella-regular.otf') format('opentype');
 		}
 		@font-face {
 			font-family: Pagella;
 			font-weight: bold;
-			src: local('TeX Gyre Pagella Bold'), url('texgyrepagella-bold.otf');
+			src: local('TeX Gyre Pagella Bold'), url('texgyrepagella-bold.otf') format('opentype');
 		}
 		@font-face {
 			font-family: Pagella;
 			font-style: italic;
-			src: local('TeX Gyre Pagella Italic'), url('texgyrepagella-italic.otf');
+			src: local('TeX Gyre Pagella Italic'), url('texgyrepagella-italic.otf') format('opentype');
 		}
 		@font-face {
 			font-family: Pagella;
 			font-weight: bold;
 			font-style: italic;
-			src: local('TeX Gyre Pagella Bold Italic'), url('texgyrepagella-bolditalic.otf');
+			src: local('TeX Gyre Pagella Bold Italic'), url('texgyrepagella-bolditalic.otf') format('opentype');
+		}
+
+		@font-face {
+			font-family: TexGyreCursor;
+			font-weight: normal;
+			font-style: normal;
+			src: url('texgyrecursor-regular.otf') format('opentype');
+		}
+		@font-face {
+			font-family: TexGyreCursor;
+			font-weight: bold;
+			font-style: normal;
+			src: url('texgyrecursor-bold.otf') format('opentype');
+		}
+		@font-face {
+			font-family: TexGyreCursor;
+			font-weight: normal;
+			font-style: italic;
+			src: url('texgyrecursor-italic.otf') format('opentype');
+		}
+		@font-face {
+			font-family: TexGyreCursor;
+			font-weight: bold;
+			font-style: italic;
+			src: url('texgyrecursor-bolditalic.otf') format('opentype');
 		}
 
 		@media all {
@@ -149,8 +174,18 @@
 			margin-bottom: 1em;
 		}
 
+		a.plain-link,
 		a.email,
 		a.site {
+			text-decoration: none;
+
+			color: #2d2d2d;
+		}
+
+		a.url {
+			font-family: TexGyreCursor, monospace;
+			/* font-size: 0.8em; */
+			letter-spacing: -0.04em;
 			text-decoration: none;
 
 			color: #2d2d2d;
@@ -350,6 +385,7 @@
 			
 			<div class="spacer" style="height: 20px">&nbsp;</div>
 
+			<!-- Page 2 -->
 			<div class="work">
 				<h4>Work Experience (Cont.)</h4>
 				<div class="job">
@@ -375,9 +411,70 @@
 				</div>
 			</div>
 
-			<!-- Page 2 -->
-			<div class="print-page-margin" id="page-two"></div>
-			<div id="page-two-header">M. Wade - p. 2</div>
+			<div class="skills" id="open-source">
+				<h4>Open Source Projects</h4>
+				<ul class="main-list" style="margin-bottom: 0">
+					<li><strong>YaModal</strong> 
+						<a
+							href="https://www.npmjs.com/package/@designory/yamodal"
+							class="url"
+						>(www.npmjs.com/package/@designory/yamodal)</a>:<br>
+						YaModal is yet another modal library written in vanilla javascript.
+						It aims to provide basic functionality for injecting an element into
+						the DOM when a trigger is clicked, and removing that same node when
+						a relevant close element is also clicked.
+						<ul class="sub-list">
+							<li>
+								Tooling: <em>Mocha</em>, <em>JSDOM</em>, <em>Rollup &amp; Babel</em>.
+							</li>
+						</ul>
+					</li>
+					<li><strong>diff-dev-prod (ddp)</strong> 
+						<a
+							href="https://www.npmjs.com/package/@designory/diff-dev-prod"
+							class="url"
+						>(www.npmjs.com/package/@designory/diff-dev-prod)</a>:<br>
+						A CLI tool to view useful differences between development source
+						code and deployed production code.
+						<ul class="sub-list">
+							<li>
+								Tooling: <em>oclif</em>, <em>Rollup &amp; Babel</em>. 
+							</li>
+						</ul>
+					</li>
+					<li><strong>hover-image</strong> 
+						<a
+							href="https://www.npmjs.com/package/@designory/hover-image"
+							class="url"
+						>(www.npmjs.com/package/@designory/hover-image)</a>:<br>
+						A generic library to swap out an image on hover.
+						<ul class="sub-list">
+							<li>
+								Tooling: <em>VanillaJS</em>, <em>Rollup &amp; Babel</em>. 
+							</li>
+						</ul>
+					</li>
+					<li><strong>build-diff</strong> 
+						<a
+							href="https://www.npmjs.com/package/@designory/build-diff"
+							class="url"
+						>(www.npmjs.com/package/@designory/build-diff)</a>:<br>
+						A CLI tool to copy out differences between two folders.
+						<ul class="sub-list">
+							<li>
+								Tooling: <em>Mocha</em>, <em>CircleCI</em>.
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<!-- <div class="print-page-margin" id="page-two"></div> -->
+			<!-- <div id="page-two-header">M. Wade - p. 2</div> -->
+
+			<div class="spacer" style="height: 90px">&nbsp;</div>
+
+			<!-- Page 3 -->
 
 			<div class="skills" id="programming-experience">
 				<h4>Technical Experience</h4>
@@ -408,8 +505,6 @@
 						</ul></li>
 					</ul>
 			</div>
-
-			<div class="spacer" style="height: 160px">&nbsp;</div>
 
 			<div class="work" id="other-work-experience">
 				<h4>Other Work Experience</h4>
