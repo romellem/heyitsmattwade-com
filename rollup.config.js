@@ -2,8 +2,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-// import serve from 'rollup-plugin-serve';
-// import livereload from 'rollup-plugin-livereload';
 
 const config = {
 	input: 'src/scripts/main.js',
@@ -15,7 +13,7 @@ const config = {
 	plugins: [
 		resolve({
 			customResolveOptions: {
-				moduleDirectory: 'node_modules',
+				moduleDirectories: ['node_modules'],
 			},
 		}),
 		commonjs(),
