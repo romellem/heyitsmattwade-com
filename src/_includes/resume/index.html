@@ -60,15 +60,7 @@
 			}
 		}
 
-		.spacer {
-			display: none;
-		}
-
 		@media print {
-			.spacer {
-				display: block;
-			}
-
 			.work,
 			.skills {
 				page-break-inside: avoid;
@@ -329,7 +321,6 @@
 	</head>
 	<body>
 		<div class="main-container">
-			<section>
 			<div class="top-name-address">
 				<h1>Matthew Wade</h1>
 				<h2>Chicago, IL</h2>
@@ -391,12 +382,10 @@
 					</ul>
 				</div>
 			</div>
-			</section>
 			
 			<div class="spacer" style="height: 20px">&nbsp;</div>
 
 			<!-- Page 2 -->
-			<section>
 			<div class="work">
 				<h4>Work Experience (Cont.)</h4>
 				<div class="job">
@@ -479,7 +468,6 @@
 					</li>
 				</ul>
 			</div>
-			</section>
 
 			<!-- <div class="print-page-margin" id="page-two"></div> -->
 			<!-- <div id="page-two-header">M. Wade - p. 2</div> -->
@@ -488,7 +476,6 @@
 
 			<!-- Page 3 -->
 
-			<section>
 			<div class="skills" id="programming-experience">
 				<h4>Technical Experience</h4>
 					<ul class="main-list" style="margin-bottom: 0">
@@ -557,80 +544,7 @@
 					</ul>
 				</div>
 			</div>
-			</section>
-
-			<div class="spacer">&nbsp;</div>
-
-			<!-- Page 3 -->
-
-			<section>
-			<div class="skills" id="programming-experience">
-				<h4>Technical Experience</h4>
-					<ul class="main-list" style="margin-bottom: 0">
-						<li>Client Side / Front End:
-						<ul class="sub-list">
-							<li>
-								<em>HTML</em>, <em>(S)CSS</em>, <em>JavaScript</em>, <em>React</em>, <em>Vue</em>, <em>Handlebars</em>, <em>Redux</em>, <em>Bootstrap</em>, <em>Foundation</em>,&nbsp;<em>GSAP</em>.
-							</li>
-						</ul></li>
-						<li>Front End Tooling:
-						<ul class="sub-list">
-							<li>
-								<em>NPM &amp; Yarn</em>, <em>Babel</em>, <em>Webpack</em>, <em>Gulp</em>, <em>Browserify</em>, <em>PostCSS</em>, <em>Gatsby</em>, <em>Storybook</em>, <em>Jest &amp; Mocha</em>,&nbsp;<em>Puppeteer</em>.
-							</li>
-						</ul></li>
-						<li>Server Side / Back End:
-						<ul class="sub-list">
-							<li>
-								<em>NodeJS</em>, <em>Express</em>, <em>Keystone</em>, <em>MongoDB <span class="normal">(via</span> Mongoose<span class="normal">)</span></em>, <em>PHP</em>, <em>SQLite</em>,&nbsp;<em>MariaDB</em>.
-							</li>
-						</ul></li>
-						<li>Other:
-						<ul class="sub-list">
-							<li>
-								<em>Bash (GNU Coreutils)</em>, <em>Git</em>, <em>GitLab CI</em>, <em>Docker</em>, <em>PHP</em>, <em>CakePHP</em>, <em>C# / .NET</em>, <em>Sharepoint</em>, <em>Salesforce</em>, <em>Heroku</em>, <em>AWS (S3)</em>, <em>SQL</em>, <em>Adobe Creative Suite (Illustrator, Photoshop,&nbsp;InDesign)</em>.
-							</li>
-						</ul></li>
-					</ul>
-			</div>
-
-			<div class="work" id="other-work-experience">
-				<h4>Other Work Experience</h4>
-				<div class="job">
-					<div class="job-and-year-wrapper">
-						<div class="job-location">
-							<strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, unde optio debitis repudiandae magni eum reprehenderit assumenda iusto eius natus qui, eveniet ullam cupiditate amet maiores inventore ab recusandae quaerat?</strong>
-						</div>
-						<div class="year">
-							2008
-						</div>
-					</div>
-					<div class="job-title">
-						Mathematics Tutor
-					</div>
-					<ul class="main-list">
-						<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos doloremque aperiam libero perferendis quo eum sequi nesciunt necessitatibus velit labore odit, accusantium voluptatem quisquam, tempore, fugiat perspiciatis eveniet. Error, sit.</li>
-					</ul>
-				</div>
-			</div>
-			</section>
 
 		</div>
-		<script>
-			const SECTION_MAX_HEIGHT = 866;
-			let sections = document.querySelectorAll('section');
-			sections.forEach((section, i) => {
-				let spacer = section.nextElementSibling;
-				if (spacer && spacer.classList.contains('spacer')) {
-					// Things after page one need 10 pixels more?
-					let spacer_height = SECTION_MAX_HEIGHT - (section.clientHeight + (i > 0 ? 40 : 0)) + (i > 0 ? 10 : 0);
-					if (spacer_height < 0) {
-						console.error("A section is taller than the page's max height:", section);
-						alert("A section is taller than the page's max height.\n\nReview the console log and break up the section.");
-					}
-					spacer.style.height = `${spacer_height}px`;
-				}
-			});
-		</script>
 	</body>
 </html>
