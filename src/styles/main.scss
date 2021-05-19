@@ -102,6 +102,7 @@ h3 {
 dl {
 	display: grid;
 	grid-template-columns: minmax(20%, auto) 1fr;
+
 	dt {
 		grid-column: 1;
 	}
@@ -110,10 +111,6 @@ dl {
 		grid-column: 2;
 	}
 
-	& + * {
-		display: inline-block;
-		margin-top: 1em;
-	}
 	& + .link {
 		margin-top: 0;
 	}
