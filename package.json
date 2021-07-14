@@ -13,22 +13,22 @@
 		"serve": "eleventy --serve --config=eleventy.config.js"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^0.11.1",
-		"@babel/core": "^7.12.10",
-		"@babel/preset-env": "^7.12.10",
+		"@11ty/eleventy": "^0.12.1",
+		"@babel/core": "^7.14.6",
+		"@babel/preset-env": "^7.14.7",
 		"@rollup/plugin-babel": "^5.2.2",
-		"@rollup/plugin-commonjs": "^17.0.0",
-		"@rollup/plugin-node-resolve": "^11.0.1",
+		"@rollup/plugin-commonjs": "^19.0.0",
+		"@rollup/plugin-node-resolve": "^13.0.0",
 		"babel-eslint": "^10.1.0",
-		"concurrently": "^5.3.0",
-		"eslint": "^7.17.0",
+		"concurrently": "^6.2.0",
+		"eslint": "^7.30.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-plugin-import": "^2.22.1",
-		"globby": "^11.0.2",
-		"rollup": "^2.36.1",
+		"globby": "^11.0.4",
+		"rollup": "^2.53.1",
 		"rollup-plugin-terser": "^7.0.2",
-		"sass": "^1.32.2",
-		"serve": "^11.3.2"
+		"sass": "^1.35.2",
+		"serve": "^12.0.0"
 	},
 	"dependencies": {
 		"basiclightbox": "^5.0.3",
