@@ -9,6 +9,7 @@
 		"build:styles": "sass src/styles:dist/css --load-path=node_modules --style=compressed",
 		"build": "npm run build:server && npm run build:scripts && npm run build:styles",
 		"dev": "concurrently -n script,styles,server \"rollup -c --watch\" \"sass --watch src/styles:dist/css --load-path=node_modules --style=compressed\" \"eleventy --serve --config=eleventy.config.js\"",
+		"lint": "eslint --fix",
 		"resume": "serve src/_includes/resume",
 		"serve": "eleventy --serve --config=eleventy.config.js"
 	},
@@ -16,23 +17,23 @@
 		"recursive-copy": "^2.0.13"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^0.12.1",
-		"@11ty/eleventy-img": "^0.9.0",
+		"@11ty/eleventy": "^1.0.0",
+		"@11ty/eleventy-img": "^1.0.0",
 		"@babel/core": "^7.14.6",
 		"@babel/preset-env": "^7.14.7",
 		"@rollup/plugin-babel": "^5.2.2",
-		"@rollup/plugin-commonjs": "^19.0.0",
-		"@rollup/plugin-node-resolve": "^13.0.0",
+		"@rollup/plugin-commonjs": "^21.0.1",
+		"@rollup/plugin-node-resolve": "^13.1.3",
 		"babel-eslint": "^10.1.0",
-		"concurrently": "^6.2.0",
-		"eslint": "^7.30.0",
-		"eslint-config-airbnb-base": "^14.2.1",
-		"eslint-plugin-import": "^2.22.1",
+		"concurrently": "^7.0.0",
+		"eslint": "^8.6.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.4",
 		"globby": "^11.0.4",
-		"rollup": "^2.53.1",
+		"rollup": "^2.64.0",
 		"rollup-plugin-terser": "^7.0.2",
-		"sass": "^1.35.2",
-		"serve": "^12.0.0"
+		"sass": "^1.48.0",
+		"serve": "^13.0.2"
 	},
 	"dependencies": {
 		"basiclightbox": "^5.0.3",
