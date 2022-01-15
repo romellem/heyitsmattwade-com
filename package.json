@@ -16,7 +16,7 @@
 		"recursive-copy": "^2.0.13"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^0.12.1",
+		"@11ty/eleventy": "^1.0.0",
 		"@11ty/eleventy-img": "^0.9.0",
 		"@babel/core": "^7.14.6",
 		"@babel/preset-env": "^7.14.7",

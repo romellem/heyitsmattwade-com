@@ -47,6 +47,11 @@ module.exports = function (eleventyConfig) {
 		eleventyConfig.addPassthroughCopy(to_copy);
 	}
 
+	eleventyConfig.setLiquidOptions({
+		dynamicPartials: false,
+		strictFilters: false,
+	});
+
 	/**
 	 * Returns a number, which is the current year + the argument, which defaults to 0.
 	 */
