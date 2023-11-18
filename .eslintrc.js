@@ -1,5 +1,6 @@
 module.exports = {
 	parser: 'babel-eslint',
+	// @todo remove this extension and set all rules inline
 	extends: ['airbnb-base'],
 	rules: {
 		'import/prefer-default-export': ['off'],
