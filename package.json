@@ -39,6 +39,7 @@
 		"serve": "^13.0.2"
 	},
 	"dependencies": {
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
 		"basiclightbox": "^5.0.3",
 		"normalize.css": "^8.0.1"
 	}
