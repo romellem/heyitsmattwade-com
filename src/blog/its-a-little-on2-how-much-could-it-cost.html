@@ -2,23 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>HEY IT'S MATT WADE</title>
+		<title>HIMW - It’s a little O(n²), how much could it cost?</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Personal Website for Developer Matt Wade" />
 
 		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103164724-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-
-			gtag('config', 'UA-103164724-1');
-		</script>
 
 		<link
 			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;700&display=swap"
@@ -26,6 +15,7 @@
 		/>
 		<link href="/css/main.css" rel="stylesheet" />
 		<link href="/css/blog.css" rel="stylesheet" />
+		<link href="/css/prism-laserwave.css" rel="stylesheet" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -33,7 +23,7 @@
 	</head>
 	<body>
 		<header class="header header--shadow intro">
-			<h1>It's a little O(n²), how much could it cost?</h1>
+			<h1>It’s a little O(n²), how much could it cost?</h1>
 		</header>
 		<p class="date">June 11, 2025</p>
 		<nav>
@@ -48,36 +38,22 @@
 		</nav>
 		<section>
 			<article class="full-bleed padded flow">
-				<p>
-					When I was a kid, I used to love the <a href="https://en.wikipedia.org/wiki/Price_is_Right">Price is Right</a>. I
-					loved the games, the prizes, and the excitement of watching people win. But there was one game that always
-					confused me: <a href="https://en.wikipedia.org/wiki/It's_in_the_Bag_(game_show)">It's in the Bag</a>.
-				</p>
-				<p>
-					The premise of the game is simple: contestants are shown a series of grocery items and their prices, and they have
-					to guess which items are in a bag that has a total price. The catch is that the prices are not always what they
-					seem, and contestants can end up with a bag full of items that cost more than they expected.
-				</p>
-				<p>
-					I remember watching the show as a kid and thinking, "How hard can it be to guess the prices of these items? It's
-					not like they're hidden or anything." But as I grew older and started to learn more about algorithms and data
-					structures, I realized that the problem was much more complex than it seemed.
-				</p>
-				<p>
-					The problem with guessing prices is that it's not just about knowing the prices of individual items. It's about
-					understanding how those prices interact with each other. For example, if you know that a loaf of bread costs $2,
-					and a gallon of milk costs $3, you might think that a bag containing both items would cost $5. But what if the
-					store has a sale on bread, and it's actually only $1? Suddenly, your guess is off by $1.
-				</p>
-				<p>
-					This is where algorithms come in. Algorithms are sets of instructions for solving problems, and they can help us
-					make better guesses about prices. For example, we could use an algorithm to calculate the average price of an item
-					based on its historical prices. Or we could use an algorithm to predict how prices will change over time based on
-					factors like supply and demand.
-				</p>
-				<p>
-					In conclusion, while guessing prices may seem like a simple task, it's actually quite complex. By using algorithms,
-					we can make better guesses and avoid costly
+				<p>You’re slinging some code, vibing as Copilot blissfully autocompletes the bits and bobs. You start writing your next chunk:</p>
+{% highlight js %}
+const itemsById =
+{% endhighlight %}
+				<p>And you don’t give a second thought as you <kbd>tab</kbd> into this beauty</p>
+{% highlight js %}
+const itemsById = items.reduce(
+  (acc, items) => ({
+    ...acc,
+    [item.id]: item,
+  }),
+  {},
+);
+{% endhighlight %}
+				<p>It’s terse, immutable, and most importantly, it’s pretty one-liner ✨💅. You push straight to <em>main</em> and call it a day.</p>
+				<p>What you might not have realized is that you just took what should have been an <code>O(n)</code> operation and made it <code>O(n²)</code>. You just <em>had</em> to have your terseness, your immutability, your <a class="link" _target="blank" href="https://en.wikipedia.org/wiki/Functional_programming">fp</a> snobbery.</p>
 			</article>
 		</section>
 		<footer>

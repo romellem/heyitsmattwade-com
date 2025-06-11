@@ -1,5 +1,6 @@
 const glob = require('globby');
 const Image = require('@11ty/eleventy-img');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 async function imageShortcode(src, alt, classes = '') {
 	if (alt === undefined) {
@@ -67,6 +68,8 @@ module.exports = function (eleventyConfig) {
 		return today.getFullYear();
 	});
 	eleventyConfig.addShortcode('imagePreview', imageShortcode);
+
+	eleventyConfig.addPlugin(syntaxHighlight);
 
 	return {
 		dir: {
