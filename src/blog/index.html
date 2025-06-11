@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>HEY IT'S MATT WADE</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Personal Website for Developer Matt Wade" />
+
+		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103164724-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-103164724-1');
+		</script>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/blog.css" rel="stylesheet" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+	</head>
+	<body>
+		<header class="header header--shadow intro">
+			<h1>HEY IT’S<br />MATT WADE’S<br />BLOG</h1>
+		</header>
+		<nav>
+			<ul>
+				<li>
+					<a class="link" href="/">Home </a>
+				</li>
+			</ul>
+		</nav>
+
+		<section>
+			<h2 class="header" id="posts">POSTS</h2>
+			<article class="full-bleed padded flow">
+				<ol>
+					<li>
+						<a class="link" href="/blog/its-a-little-on2-how-much-could-it-cost/"
+							>It's a little O(n²), how much could it cost?</a
+						>
+					</li>
+				</ol>
+			</article>
+		</section>
+
+		<footer>
+			Made with ☕️ by <strong class="shadowed">Matt Wade</strong>. © {% relativeYear 0 %}.
+		</footer>
+		<script src="/js/main.bundle.js"></script>
+	</body>
+</html>

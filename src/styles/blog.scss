@@ -1,0 +1,18 @@
+.intro {
+	font-size: 4.8rem;
+
+	// Derived from the following mixin, but copied inline
+	// @include poly(
+	//   "font-size",
+	//   (
+	// 	375px: rem-to-px(3rem),
+	// 	768px: rem-to-px(6rem),
+	//   )
+	// );
+	font-size: unquote('clamp(3rem, 15.2671755725vw + 2.7480916031px, 6rem)');
+	line-height: 0.8667;
+
+	h1 {
+		text-wrap: balance;
+	}
+}
