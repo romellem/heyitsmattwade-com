@@ -1,6 +1,7 @@
 $yellow: yellow;
 $cyan: cyan;
 $magenta: magenta;
+$black: black;
 
 $yellow-light: mix($yellow, white, 15%);
 $yellow-lighter: mix($yellow, white, 7%);
@@ -8,3 +9,5 @@ $cyan-light: mix($cyan, white, 15%);
 $cyan-lighter: mix($cyan, white, 7%);
 $magenta-light: mix($magenta, white, 15%);
 $magenta-lighter: mix($magenta, white, 7%);
+$black-light: mix(white, $black, 15%);
+$black-lighter: mix(white, $black, 7%);
