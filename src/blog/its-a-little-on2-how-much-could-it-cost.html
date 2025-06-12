@@ -29,10 +29,7 @@
 		<nav>
 			<ul>
 				<li>
-					<a class="link" href="/">Home </a>
-				</li>
-				<li>
-					<a class="link" href="/blog/">Blog </a>
+					<a class="link" href="/blog/">Blog Home {% include writing.svg %}</a>
 				</li>
 			</ul>
 		</nav>
@@ -54,6 +51,15 @@ const itemsById = items.reduce(
 {% endhighlight %}
 				<p>It’s terse, immutable, and most importantly, it’s pretty one-liner ✨💅. You push straight to <em>main</em> and call it a day.</p>
 				<p>What you might not have realized is that you just took what should have been an <code>O(n)</code> operation and made it <code>O(n²)</code>. You just <em>had</em> to have your terseness, your immutability, your <a class="link" _target="blank" href="https://en.wikipedia.org/wiki/Functional_programming">fp</a> snobbery.</p>
+{% highlight js 2 %}
+const itemsById = items.reduce(
+  (acc, items) => ({
+    ...acc,
+    [item.id]: item,
+  }),
+  {},
+);
+{% endhighlight %}
 			</article>
 		</section>
 		<footer>

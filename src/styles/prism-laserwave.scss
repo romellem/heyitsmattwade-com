@@ -11,7 +11,8 @@ pre[class*="language-"] {
 	color: #ffffff;
 	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; /* this is the default */
 	/* The following properties are standard, please leave them as they are */
-	font-size: 1em;
+	/* ^ dont tell me what to do */
+	font-size: clamp(0.8rem, 0.4667rem + 1.0667vw, 1rem);
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -130,4 +131,47 @@ pre[class*="language-"] {
 
 .token.namespace {
 	opacity: 0.7;
+}
+
+/** Highlights */
+
+.highlight-line {
+  display: inline-block;
+
+  /* del, ins, mark default styles */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* allow highlighting empty lines */
+.highlight-line:empty:before {
+  content: " ";
+}
+
+.highlight-line:not(:last-child) {
+  min-width: 100%;
+}
+.highlight-line .highlight-line:not(:last-child) {
+  min-width: 0;
+}
+
+.highlight-line-active {
+  background-color: hsl(268, 16%, 21%);
+}
+.highlight-line-add {
+//   background-color: hsl(187, 100%, 20%);
+  background-color: hsl(187, 100%, 12%);
+//   background-color: #00292E;
+}
+.highlight-line-remove {
+  background-color: hsl(306, 27%, 18%);
+//   background-color: #311C2F;
+}
+
+.highlight-line-active,
+.highlight-line-add,
+.highlight-line-remove {
+	/* full bleed */
+	margin: 0 -1em;
+	padding: 0 1em;
 }

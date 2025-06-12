@@ -24,6 +24,7 @@ html {
 }
 
 body {
+	font-size: clamp(0.8rem, 0.4667rem + 1.0667vw, 1rem);
 	max-width: 800px;
 	margin: 1em auto;
 	padding: 0 1em;
