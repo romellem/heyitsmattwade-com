@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>HIMW - It’s a little O(n²), how much could it cost?</title>
+		<title>HIMW - It’s one little O(n²), how much could it cost?</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Personal Website for Developer Matt Wade" />
 
@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		<header class="header header--shadow intro">
-			<h1>It’s a little O(n²), how much could it cost?</h1>
+			<h1>It’s one little O(n²), how much could it cost?</h1>
 		</header>
 		<p class="date">June 11, 2025</p>
 		<nav>
@@ -33,13 +33,14 @@
 				</li>
 			</ul>
 		</nav>
-		<section>
-			<article class="full-bleed padded flow">
+		<acticle>
+			<section class="full-bleed padded flow">
+				<h3 class="header" id="who-cares">It starts innocently enough</h3>
 				<p>You’re slinging some code, vibing as Copilot blissfully autocompletes the bits and bobs. You start writing your next chunk:</p>
 {% highlight js %}
 const itemsById =
 {% endhighlight %}
-				<p>And you don’t give a second thought as you <kbd>tab</kbd> into this beauty</p>
+				<p>And you don’t give a second thought as you <kbd>tab</kbd> into this beauty:</p>
 {% highlight js %}
 const itemsById = items.reduce(
   (acc, items) => ({
@@ -49,8 +50,12 @@ const itemsById = items.reduce(
   {},
 );
 {% endhighlight %}
-				<p>It’s terse, immutable, and most importantly, it’s pretty one-liner ✨💅. You push straight to <em>main</em> and call it a day.</p>
-				<p>What you might not have realized is that you just took what should have been an <code>O(n)</code> operation and made it <code>O(n²)</code>. You just <em>had</em> to have your terseness, your immutability, your <a class="link" _target="blank" href="https://en.wikipedia.org/wiki/Functional_programming">fp</a> snobbery.</p>
+				<p>It’s terse, immutable, and most importantly, it’s a pretty one-liner ✨💅. You push straight to <em>main</em> and call it a day.</p>
+				<p>What you might not have realized is that you just took what should have been an <code><a class="link" target="_blank" href="https://en.wikipedia.org/wiki/Big_O_notation">O(n)</a></code> operation and made it <code>O(n²)</code>. Or at least, your LLM made it <code>O(n²)</code>.</p>
+			</section>
+			<section class="full-bleed padded flow">
+				<h3 class="header" id="who-cares">Who cares? That’s premature optimization</h3>
+				You just <em>had</em> to have your terseness, your immutability, your <a class="link" target="_blank" href="https://en.wikipedia.org/wiki/Functional_programming">fp</a> snobbery.</p>
 {% highlight js 2 %}
 const itemsById = items.reduce(
   (acc, items) => ({
@@ -60,8 +65,8 @@ const itemsById = items.reduce(
   {},
 );
 {% endhighlight %}
-			</article>
-		</section>
+			</section>
+		</article>
 		<footer>
 			Made with ☕️ by <strong class="shadowed">Matt Wade</strong>. © {% relativeYear 0 %}.
 		</footer>

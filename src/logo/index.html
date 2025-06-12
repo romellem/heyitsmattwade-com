@@ -1,0 +1,129 @@
+<style>
+	:root {
+		/* https://coolors.co/palette/f5ffc6-b4e1ff-ab87ff-fface4-c1ff9b */
+		--yellow: #f5ffc6;
+		--blue: #b4e1ff;
+		--purple: #ab87ff;
+		--pink: #fface4;
+		--green: #c1ff9b;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, 100px);
+		grid-template-rows: repeat(2, 100px);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		max-width: 200px;
+	}
+
+	.grid > div {
+		position: relative;
+	}
+	span {
+		position: absolute;
+		background: black;
+	}
+
+	.div1 {
+		grid-area: 1 / 1 / 2 / 2;
+		background: var(--green);
+	}
+	.div2 {
+		grid-area: 1 / 2 / 2 / 3;
+		background: var(--pink);
+	}
+	.div3 {
+		grid-area: 2 / 1 / 3 / 2;
+		background: var(--pink);
+	}
+	.div4 {
+		grid-area: 2 / 2 / 3 / 3;
+		background: var(--green);
+	}
+
+	.ht {
+		height: 40%;
+		width: 16px;
+		background: var(--pink);
+		top: 0;
+		left: calc(50% - 8px);
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+	.hb {
+		height: 40%;
+		width: 16px;
+		background: var(--pink);
+		bottom: 0;
+		left: calc(50% - 8px);
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.il {
+		width: 40%;
+		height: 16px;
+		background: var(--green);
+		left: 0;
+		top: calc(50% - 8px);
+		border-bottom-right-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.ir {
+		width: 40%;
+		height: 16px;
+		background: var(--green);
+		right: 0;
+		top: calc(50% - 8px);
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+	}
+
+	.ml {
+		height: 80%;
+		width: 16px;
+		background: var(--green);
+		bottom: 0;
+		right: calc(50% + 8px);
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.mr {
+		height: 80%;
+		width: 16px;
+		background: var(--green);
+		bottom: 0;
+		left: calc(50% + 8px);
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.wl {
+		height: 80%;
+		width: 16px;
+		background: var(--pink);
+		top: 0;
+		right: calc(50% + 8px);
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+
+	.wr {
+		height: 80%;
+		width: 16px;
+		background: var(--pink);
+		top: 0;
+		left: calc(50% + 8px);
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+</style>
+
+<div class="grid">
+	<div class="div1"><span class="ht"></span><span class="hb"></span></div>
+	<div class="div2"><span class="il"></span><span class="ir"></span></div>
+	<div class="div3"><span class="ml"></span><span class="mr"></span></div>
+	<div class="div4"><span class="wl"></span><span class="wr"></span></div>
+</div>
