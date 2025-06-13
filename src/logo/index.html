@@ -1,7 +1,7 @@
 <style>
 	:root {
 		/* https://coolors.co/palette/f5ffc6-b4e1ff-ab87ff-fface4-c1ff9b */
-		--yellow: #f5ffc6;
+		/* --yellow: #f5ffc6; */
 		--blue: #b4e1ff;
 		--purple: #ab87ff;
 		--pink: #fface4;
@@ -14,6 +14,10 @@
 		grid-column-gap: 0px;
 		grid-row-gap: 0px;
 		max-width: 200px;
+	}
+
+	.grid + .grid {
+		/* margin-top: 1em; */
 	}
 
 	.grid > div {
@@ -59,6 +63,22 @@
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
 	}
+	.he1 {
+		width: 16px;
+		height: 16px;
+		background: var(--green);
+		top: 100%;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			background: var(--pink);
+			border-top-left-radius: 8px;
+		}
+	}
 
 	.il {
 		width: 40%;
@@ -80,8 +100,26 @@
 		border-top-left-radius: 8px;
 	}
 
+	.ie1 {
+		width: 16px;
+		height: 16px;
+		background: var(--green);
+		top: 0;
+		left:0;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			background: var(--pink);
+			border-top-left-radius: 8px;
+		}
+	}
+
 	.ml {
-		height: 80%;
+		height: 40%;
 		width: 16px;
 		background: var(--green);
 		bottom: 0;
@@ -91,13 +129,31 @@
 	}
 
 	.mr {
-		height: 80%;
+		height: 60%;
 		width: 16px;
 		background: var(--green);
 		bottom: 0;
 		left: calc(50% + 8px);
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
+	}
+
+	.me1 {
+		width: 16px;
+		height: 16px;
+		background: var(--green);
+		bottom: 0;
+		right:0;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			background: var(--pink);
+			border-bottom-right-radius: 8px;
+		}
 	}
 
 	.wl {
@@ -111,7 +167,7 @@
 	}
 
 	.wr {
-		height: 80%;
+		height: 60%;
 		width: 16px;
 		background: var(--pink);
 		top: 0;
@@ -119,11 +175,92 @@
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
 	}
+
+	.we1 {
+		width: 16px;
+		height: 16px;
+		background: var(--green);
+		bottom: 100%;
+		right:0;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			background: var(--pink);
+			border-bottom-right-radius: 8px;
+		}
+	}
+
+	#app {
+		display: grid;
+		grid-template-columns: repeat(4, max-content);
+
+		> * {
+			transform-origin: center;
+		}
+
+		/* > :nth-child(4n + 1) {
+			rotate: 0deg;
+			
+		}
+		> :nth-child(4n + 2) {
+			rotate: -90deg;
+			transform: translateX(50%);
+		}
+		> :nth-child(4n + 3) {
+			rotate: 90deg;
+		}
+		> :nth-child(4n + 4) {
+			rotate: -270deg;
+		} */
+	}
 </style>
 
-<div class="grid">
-	<div class="div1"><span class="ht"></span><span class="hb"></span></div>
-	<div class="div2"><span class="il"></span><span class="ir"></span></div>
-	<div class="div3"><span class="ml"></span><span class="mr"></span></div>
-	<div class="div4"><span class="wl"></span><span class="wr"></span></div>
+<div id="app"></div>
+
+
+<script>
+	const $ = (s, p) => p ? p.querySelector(s) : document.querySelector(s);
+	const $$ = (s, p) => p ? p.querySelectorAll(s) : document.querySelectorAll(s);
+	const app = $('#app');
+	const makeEl = () => {
+		const temp = document.createElement('div');
+		temp.innerHTML = `<div class="grid">
+	<div class="div1"><span class="ht"></span><span class="hb"></span><span class="he1"></span></div>
+	<div class="div2"><span class="il"></span><span class="ir"></span><span class="ie1"></span></div>
+	<div class="div3"><span class="ml"></span><span class="mr"></span><span class="me1"></span></div>
+	<div class="div4"><span class="wl"></span><span class="wr"></span><span class="we1"></span></div>
+</div>`;
+		return temp.firstChild;
+	}
+
+	for (let i = 0; i < 16; i++) app.appendChild(makeEl());
+
+
+
+</script>
+
+
+<!-- <div class="grid">
+	<div class="div1"><span class="ht"></span><span class="hb"></span><span class="he1"></span></div>
+	<div class="div2"><span class="il"></span><span class="ir"></span><span class="ie1"></span></div>
+	<div class="div3"><span class="ml"></span><span class="mr"></span><span class="me1"></span></div>
+	<div class="div4"><span class="wl"></span><span class="wr"></span><span class="we1"></span></div>
 </div>
+
+<div class="grid" style="--pink: var(--purple);">
+	<div class="div1"><span class="ht"></span><span class="hb"></span><span class="he1"></span></div>
+	<div class="div2"><span class="il"></span><span class="ir"></span><span class="ie1"></span></div>
+	<div class="div3"><span class="ml"></span><span class="mr"></span><span class="me1"></span></div>
+	<div class="div4"><span class="wl"></span><span class="wr"></span><span class="we1"></span></div>
+</div>
+
+<div class="grid" style="--green: var(--purple);">
+	<div class="div1"><span class="ht"></span><span class="hb"></span><span class="he1"></span></div>
+	<div class="div2"><span class="il"></span><span class="ir"></span><span class="ie1"></span></div>
+	<div class="div3"><span class="ml"></span><span class="mr"></span><span class="me1"></span></div>
+	<div class="div4"><span class="wl"></span><span class="wr"></span><span class="we1"></span></div>
+</div> -->
