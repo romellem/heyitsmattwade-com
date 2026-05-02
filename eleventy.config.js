@@ -46,6 +46,15 @@ module.exports = function (eleventyConfig) {
 	for (let to_copy of non_compiled_files) {
 		eleventyConfig.addPassthroughCopy(to_copy);
 	}
+	eleventyConfig.addPassthroughCopy({
+		'./src/styles/main.css': 'css/main.css',
+	});
+
+	eleventyConfig.setServerOptions({
+		liveReload: true,
+		domDiff: true,
+		watch: ['dist/js/**/*.js'],
+	});
 
 	eleventyConfig.setLiquidOptions({
 		dynamicPartials: false,
